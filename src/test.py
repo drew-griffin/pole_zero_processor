@@ -27,7 +27,7 @@ def test_func():
     limits = {"p1": 1/10e3+1j, "p2": (1/1e6, 1/1e3, 1/1e1), "p3": (1+1j, 2, 3), "p4": (1, 2, 3)}
     """
 
-    # single pole low pass 1 rad/s
+    # single pole low pass 1k rad/s
     """
     p1 = Symbol("p1")
     sp = 1 / (s * p1 + 1)
@@ -45,7 +45,7 @@ def test_func():
     limits = {"p1": (1e3,), "p2": 10, "z1": (1, 1000)}
     """
 
-    # single pole low pass 1M rad/s, 1k rad/s , 1 rad/s
+    # single pole low pass 1M rad/s, 1k rad/s , 10 rad/s
     # gain of 1, 2, 3
     p1 = Symbol("p1")
     z1 = Symbol("z1")
