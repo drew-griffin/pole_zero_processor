@@ -118,12 +118,15 @@ class ExpressionClass:
         """
         label = np.chararray(len(self.pz), itemsize=3)
         full_label = []
+        mag_values = []
         for combination in itertools.product(*self.indices):
             values = [
                 self.limits[dimension][index]
                 for dimension, index in enumerate(combination)
             ]
-            mag_values = [abs(val) for val in values]
+            for index, val in enumerate(values): #update max pole
+                if self.pz[index][0] == "p":
+                    mag_values.append(abs(val))
             if max(mag_values) > self.max:  # calculate maximum pole/zero magnitude
                 self.max = max(mag_values)
             for index in range(
